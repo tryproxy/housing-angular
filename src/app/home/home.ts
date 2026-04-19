@@ -1,36 +1,34 @@
-import { Component, inject } from '@angular/core';
-import { HousingLocation } from '../housing-location/housing-location';
-import { HousingLocationInfo } from '../housinglocation';
-import { db } from '../../assets/db';
-import { HousingService } from '../services/housing.service';
+import { Component, inject } from "@angular/core";
+import { HousingLocation } from "../housing-location/housing-location";
+import { HousingLocationInfo } from "../housinglocation";
+import { HousingService } from "../services/housing.service";
 
 @Component({
-  selector: 'tryproxy-home',
+  selector: "tryproxy-home",
   imports: [HousingLocation],
   template: `
     <div>
       home works!
-      <ng-content/>
+      <ng-content />
 
-    <section>
-         <form>
-         <input type="text" [placeholder]='placeholder_1' />
-           <button class="primary" type="button">Search</button>
-         </form>
-    </section>
-    <section class='results'>
-      <!-- <tryproxy-housing-location [housingLocation]='housingLocation' /> -->
-      @for (house of houseList; track house.id) {
-        <tryproxy-housing-location [housingLocation]='house' />
-      }
-    </section>
-
+      <section>
+        <form>
+          <input type="text" [placeholder]="placeholder_1" />
+          <button class="primary" type="button">Search</button>
+        </form>
+      </section>
+      <section class="results">
+        <!-- <tryproxy-housing-location [housingLocation]='housingLocation' /> -->
+        @for (house of houseList; track house.id) {
+          <tryproxy-housing-location [housingLocation]="house" />
+        }
+      </section>
     </div>
   `,
-  styleUrl: 'home.css',
+  styleUrl: "home.scss",
 })
 export class Home {
-  readonly placeholder_1 = 'Filter by City'
+  readonly placeholder_1 = "Filter by City";
   // readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
   // housingLocation: HousingLocationInfo = {
   //   id: 9999,
@@ -42,7 +40,7 @@ export class Home {
   //   wifi: true,
   //   laundry: false,
   // };
-  private housingService = inject(HousingService)
+  private housingService = inject(HousingService);
 
-  houseList = this.housingService.houseList()
+  houseList = this.housingService.houseList();
 }

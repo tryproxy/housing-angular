@@ -1,6 +1,4 @@
 import { Component } from "@angular/core";
-import { Home } from "./home/home";
-import { HousingLocationInfo } from "./housinglocation";
 import { RouterLink, RouterOutlet } from "@angular/router";
 
 @Component({
