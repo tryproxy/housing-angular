@@ -2,3 +2,7 @@ node_modules
 .angular
 
 dist
+
+.idea
+.zed
+.vscode
